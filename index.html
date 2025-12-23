@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شرکت حمل‌ونقل بارسرا</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-right: 4px solid #3b82f6;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .feature-box:hover .feature-icon {
+            color: white;
+        }
+
+        .feature-icon {
+            color: #3b82f6;
+            transition: color 0.3s ease;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .price-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .price-table th {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 16px;
+            text-align: right;
+        }
+
+        .price-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #3b82f6;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            transform: scale(1.05);
+        }
+
+        .fleet-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b 0%, #3b82f6 100%);
+        }
+
+        .quick-contact-box {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: white;
+            color: #3b82f6;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #f59e0b;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #1e40af;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 12px;
+            color: #4b5563;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        img {
+            border-radius: 12px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="h-full w-full overflow-auto"><!-- Navigation -->
+   <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+     <div class="flex justify-between items-center">
+      <div>
+       <h1 id="nav-company-name" class="text-2xl font-bold text-blue-600">بارسرا</h1>
+       <p id="nav-company-tagline" class="text-sm text-gray-600">حمل‌ونقل سریع و مطمئن</p>
+      </div>
+      <div class="flex gap-8"><a href="#" class="nav-link text-gray-700 font-semibold hover:text-blue-600" data-page="home">صفحه اصلی</a> <a href="#" class="nav-link text-gray-700 font-semibold hover:text-blue-600" data-page="services">خدمات</a> <a href="#" class="nav-link text-gray-700 font-semibold hover:text-blue-600" data-page="about">درباره ما</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Page 1: Home -->
+   <div id="page-home" class="page-content active"><!-- Hero Section -->
+    <section class="hero-section py-20 text-white">
+     <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+       <div>
+        <h2 id="hero-title" class="text-5xl font-bold mb-6">حمل بار سریع و ایمن در سراسر کشور</h2>
+        <p class="text-xl mb-8 leading-relaxed">با بیش از ۱۰ سال تجربه، ما بهترین خدمات حمل‌ونقل شهری و بین‌شهری را با تضمین کیفیت ارائه می‌دهیم</p><button id="cta-hero-btn" class="cta-button text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">درخواست فوری حمل بار</button>
+       </div>
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/pXTBvkjQ/In-Shot-. 6.jpg" alt="ناوگان حمل‌ونقل" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+      </div>
+     </div>
+    </section><!-- About Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">درباره شرکت بارسرا</h3>
+      <div class="max-w-4xl mx-auto text-center">
+       <p class="text-lg text-gray-700 leading-relaxed mb-6">شرکت حمل‌ونقل بارسرا با بیش از یک دهه تجربه در زمینه حمل‌ونقل شهری و بین‌شهری، آماده ارائه خدمات با کیفیت به شما عزیزان است. ما با داشتن ناوگان متنوع و رانندگان مجرب، تضمین می‌کنیم که بار شما با سرعت، امنیت و دقت به مقصد برسد.</p>
+       <p class="text-lg text-gray-700 leading-relaxed">اعتماد شما سرمایه ماست و ما با ارائه خدمات حرفه‌ای، پشتیبانی ۲۴ ساعته و قیمت‌های رقابتی، همواره در کنار شما هستیم.</p>
+      </div>
+     </div>
+    </section><!-- Services Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">خدمات ما</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+       <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+        <div class="text-5xl mb-4">
+         📦
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">حمل بار</h4>
+        <p class="text-gray-600">حمل انواع بار تجاری و شخصی با تضمین سلامت کالا</p>
+       </div>
+       <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+        <div class="text-5xl mb-4">
+         ⚡
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">ارسال سریع</h4>
+        <p class="text-gray-600">ارسال فوری و همان روز در سطح شهر</p>
+       </div>
+       <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+        <div class="text-5xl mb-4">
+         🏠
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">حمل اثاثیه منزل</h4>
+        <p class="text-gray-600">اسباب‌کشی و جابجایی اثاثیه با دقت و مهارت</p>
+       </div>
+       <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+        <div class="text-5xl mb-4">
+         🏢
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">حمل بار شرکتی</h4>
+        <p class="text-gray-600">قراردادهای بلندمدت برای شرکت‌ها و کسب‌وکارها</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Features Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">مزیت‌های ما</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+       <div class="feature-box p-6 rounded-lg text-center">
+        <div class="feature-icon text-5xl mb-4">
+         🚀
+        </div>
+        <h4 class="text-xl font-bold mb-2">سرعت بالا</h4>
+        <p class="text-gray-700">تحویل سریع و به‌موقع بار شما</p>
+       </div>
+       <div class="feature-box p-6 rounded-lg text-center">
+        <div class="feature-icon text-5xl mb-4">
+         💰
+        </div>
+        <h4 class="text-xl font-bold mb-2">قیمت مناسب</h4>
+        <p class="text-gray-700">نرخ‌های رقابتی و منصفانه</p>
+       </div>
+       <div class="feature-box p-6 rounded-lg text-center">
+        <div class="feature-icon text-5xl mb-4">
+         📞
+        </div>
+        <h4 class="text-xl font-bold mb-2">پشتیبانی ۲۴ ساعته</h4>
+        <p class="text-gray-700">همیشه در دسترس شما هستیم</p>
+       </div>
+       <div class="feature-box p-6 rounded-lg text-center">
+        <div class="feature-icon text-5xl mb-4">
+         👨‍✈️
+        </div>
+        <h4 class="text-xl font-bold mb-2">رانندگان مجرب</h4>
+        <p class="text-gray-700">تیمی حرفه‌ای و آموزش‌دیده</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Fleet Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">ناوگان ما</h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/rsyNKNYv/In-Shot-. 8.jpg" alt="ناوگان حمل‌ونقل بارسرا" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div>
+        <h4 class="text-3xl font-bold text-gray-800 mb-6">انواع خودروها برای نیازهای مختلف</h4>
+        <div class="space-y-4">
+         <div class="flex items-start gap-4"><span class="text-3xl">🚐</span>
+          <div>
+           <h5 class="text-xl font-bold text-gray-800 mb-2">وانت و نیسان</h5>
+           <p class="text-gray-600">مناسب برای حمل بارهای سبک و متوسط در سطح شهر</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4"><span class="text-3xl">🚚</span>
+          <div>
+           <h5 class="text-xl font-bold text-gray-800 mb-2">کامیونت</h5>
+           <p class="text-gray-600">برای حمل بارهای متوسط تا سنگین در مسیرهای شهری و بین‌شهری</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4"><span class="text-3xl">🚛</span>
+          <div>
+           <h5 class="text-xl font-bold text-gray-800 mb-2">خاور و کامیون</h5>
+           <p class="text-gray-600">برای حمل بارهای سنگین و حجیم در مسافت‌های طولانی</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Contact Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">تماس با ما</h3>
+      <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+       <div>
+        <h4 class="text-2xl font-bold text-gray-800 mb-6">اطلاعات تماس</h4>
+        <div class="space-y-4">
+         <div class="flex items-center gap-4"><span class="text-3xl">📞</span>
+          <div>
+           <p class="text-sm text-gray-600">شماره تماس</p>
+           <p id="contact-phone" class="text-lg font-bold text-blue-600">۰۲۱-۸۸۷۷۶۶۵۵</p>
+          </div>
+         </div>
+         <div class="flex items-center gap-4"><span class="text-3xl">📱</span>
+          <div>
+           <p class="text-sm text-gray-600">موبایل</p>
+           <p class="text-lg font-bold text-blue-600">۰۹۱۲۳۴۵۶۷۸۹</p>
+          </div>
+         </div>
+         <div class="flex items-center gap-4"><span class="text-3xl">📍</span>
+          <div>
+           <p class="text-sm text-gray-600">آدرس</p>
+           <p id="contact-address" class="text-lg font-bold text-gray-800">تهران، میدان آزادی، خیابان استقلال، پلاک ۱۲۳</p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h4 class="text-2xl font-bold text-gray-800 mb-6">فرم تماس سریع</h4>
+        <form id="contact-form" class="space-y-4"><input type="text" placeholder="نام و نام خانوادگی" class="form-input" required> <input type="tel" placeholder="شماره تماس" class="form-input" required> <textarea placeholder="پیام شما" rows="4" class="form-input" required></textarea> <button type="submit" class="submit-btn w-full">ارسال پیام</button>
+        </form>
+       </div>
+      </div>
+     </div>
+    </section><!-- CTA Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/yxFC8B2s/In-Shot-. 0.jpg" alt="درخواست حمل بار" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div class="text-center md:text-right">
+        <h3 class="text-4xl font-bold text-gray-800 mb-6">نیاز به حمل بار دارید؟</h3>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">همین الان با ما تماس بگیرید و از خدمات سریع و حرفه‌ای ما بهره‌مند شوید. تیم ما آماده است تا در سریع‌ترین زمان ممکن در خدمت شما باشد.</p><button id="cta-bottom-btn" class="cta-button text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">درخواست فوری حمل بار</button>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Page 2: Services -->
+   <div id="page-services" class="page-content"><!-- Services Detail Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h2 class="section-title text-5xl font-bold text-gray-800 mb-12 text-center">خدمات ما</h2>
+      <div class="max-w-6xl mx-auto space-y-12"><!-- Service 1 -->
+       <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h3 class="text-3xl font-bold text-blue-600 mb-4">حمل بار</h3>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">خدمات حمل بار ما شامل حمل انواع بارهای تجاری، صنعتی و شخصی می‌شود. با استفاده از خودروهای مناسب و تجهیزات استاندارد، ما تضمین می‌کنیم که بار شما با کامل‌ترین امنیت به مقصد برسد.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mr-4">
+         <li>بارگیری و تخلیه توسط کارگران ماهر</li>
+         <li>بسته‌بندی حرفه‌ای کالاها</li>
+         <li>بیمه کامل بار در طول مسیر</li>
+         <li>پیگیری آنلاین محموله</li>
+        </ul>
+       </div><!-- Service 2 -->
+       <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h3 class="text-3xl font-bold text-blue-600 mb-4">ارسال سریع</h3>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">برای مواردی که نیاز به سرعت بالا دارید، سرویس ارسال سریع ما بهترین گزینه است. ما با ارائه خدمات همان روز و حتی ساعتی، نیازهای فوری شما را برطرف می‌کنیم.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mr-4">
+         <li>ارسال همان روز در سطح شهر</li>
+         <li>سرویس ساعتی برای مواقع اضطراری</li>
+         <li>تحویل درب به درب</li>
+         <li>اولویت بالا در زمان‌بندی</li>
+        </ul>
+       </div><!-- Service 3 -->
+       <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h3 class="text-3xl font-bold text-blue-600 mb-4">حمل اثاثیه منزل</h3>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">اسباب‌کشی و جابجایی اثاثیه منزل با دقت و مهارت. تیم متخصص ما با استفاده از تجهیزات مدرن، وسایل شما را با کمترین استرس و بدون خسارت جابجا می‌کند.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mr-4">
+         <li>بسته‌بندی اصولی اثاثیه</li>
+         <li>جمع‌آوری و نصب مبلمان</li>
+         <li>حمل اقلام شکستنی با بیشترین دقت</li>
+         <li>خدمات آسانسور و باربری</li>
+        </ul>
+       </div><!-- Service 4 -->
+       <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h3 class="text-3xl font-bold text-blue-600 mb-4">حمل بار شرکتی</h3>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">قراردادهای بلندمدت و اختصاصی برای شرکت‌ها و کسب‌وکارها. با ارائه تخفیف‌های ویژه و سرویس‌های منحصربه‌فرد، ما شریک قابل اعتماد کسب‌وکار شما خواهیم بود.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mr-4">
+         <li>قراردادهای حجمی با تخفیف ویژه</li>
+         <li>مدیریت زنجیره تامین</li>
+         <li>سرویس اختصاصی و منظم</li>
+         <li>گزارش‌دهی دقیق و منظم</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </section><!-- Pricing Table -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">جدول قیمت حدودی</h3>
+      <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+       <table class="price-table">
+        <thead>
+         <tr>
+          <th>نوع خدمت</th>
+          <th>نوع خودرو</th>
+          <th>مسافت</th>
+          <th>قیمت تقریبی (تومان)</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>حمل بار شهری</td>
+          <td>وانت</td>
+          <td>تا ۱۰ کیلومتر</td>
+          <td>۲۰۰,۰۰۰ - ۳۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>حمل بار شهری</td>
+          <td>کامیونت</td>
+          <td>تا ۱۰ کیلومتر</td>
+          <td>۴۰۰,۰۰۰ - ۵۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>حمل بار بین‌شهری</td>
+          <td>وانت</td>
+          <td>تهران - کرج</td>
+          <td>۶۰۰,۰۰۰ - ۸۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>حمل بار بین‌شهری</td>
+          <td>کامیونت</td>
+          <td>تهران - کرج</td>
+          <td>۱,۲۰۰,۰۰۰ - ۱,۵۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>اسباب‌کشی منزل</td>
+          <td>وانت</td>
+          <td>تا ۱۰ کیلومتر</td>
+          <td>۳۰۰,۰۰۰ - ۴۵۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>اسباب‌کشی منزل</td>
+          <td>کامیونت</td>
+          <td>تا ۱۰ کیلومتر</td>
+          <td>۶۰۰,۰۰۰ - ۸۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>ارسال سریع</td>
+          <td>وانت</td>
+          <td>سطح شهر</td>
+          <td>۳۰۰,۰۰۰ - ۴۰۰,۰۰۰</td>
+         </tr>
+         <tr>
+          <td>حمل بار سنگین</td>
+          <td>خاور/کامیون</td>
+          <td>متغیر</td>
+          <td>تماس بگیرید</td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="p-6 bg-blue-50">
+        <p class="text-gray-700 text-center"><strong>توجه:</strong> قیمت‌های ذکر شده تقریبی بوده و بسته به شرایط، وزن و حجم بار ممکن است تغییر کند. برای دریافت قیمت دقیق با ما تماس بگیرید.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Fleet Details -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">معرفی ناوگان</h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-16">
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/rsyNKNYv/In-Shot-. 8.jpg" alt="ناوگان بارسرا" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div>
+        <h4 class="text-3xl font-bold text-gray-800 mb-6">ناوگان متنوع برای هر نیازی</h4>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">ما با داشتن بیش از ۵۰ دستگاه خودرو در انواع مختلف، آماده‌ایم تا هر نوع بار شما را با بهترین کیفیت حمل کنیم. تمامی خودروهای ما دارای بیمه کامل و سرویس منظم هستند.</p>
+       </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+       <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <div class="text-6xl mb-4">
+         🚐
+        </div>
+        <h4 class="text-2xl font-bold text-gray-800 mb-3">وانت و نیسان</h4>
+        <p class="text-gray-600 mb-4">ظرفیت: تا ۱.۵ تن</p>
+        <ul class="text-sm text-gray-600 text-right space-y-2">
+         <li>✓ مناسب بارهای سبک</li>
+         <li>✓ حمل اثاثیه منزل کوچک</li>
+         <li>✓ ارسال سریع در شهر</li>
+        </ul>
+       </div>
+       <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <div class="text-6xl mb-4">
+         🚚
+        </div>
+        <h4 class="text-2xl font-bold text-gray-800 mb-3">کامیونت</h4>
+        <p class="text-gray-600 mb-4">ظرفیت: تا ۳ تن</p>
+        <ul class="text-sm text-gray-600 text-right space-y-2">
+         <li>✓ حمل بارهای متوسط</li>
+         <li>✓ اسباب‌کشی کامل</li>
+         <li>✓ مسیرهای شهری و بین‌شهری</li>
+        </ul>
+       </div>
+       <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <div class="text-6xl mb-4">
+         🚛
+        </div>
+        <h4 class="text-2xl font-bold text-gray-800 mb-3">خاور و کامیون</h4>
+        <p class="text-gray-600 mb-4">ظرفیت: بالای ۵ تن</p>
+        <ul class="text-sm text-gray-600 text-right space-y-2">
+         <li>✓ حمل بارهای سنگین</li>
+         <li>✓ بارهای صنعتی و تجاری</li>
+         <li>✓ مسافت‌های طولانی</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </section><!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">سوالات متداول</h3>
+      <div class="max-w-4xl mx-auto">
+       <div class="faq-item">
+        <div class="faq-question"><span>چگونه می‌توانم درخواست حمل بار ثبت کنم؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         کافی است با شماره تلفن ما تماس بگیرید یا از طریق فرم درخواست آنلاین، اطلاعات بار خود را ثبت کنید. کارشناسان ما در سریع‌ترین زمان با شما تماس خواهند گرفت.
+        </div>
+       </div>
+       <div class="faq-item">
+        <div class="faq-question"><span>آیا بار من بیمه است؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         بله، تمامی بارهای ما تحت پوشش بیمه کامل قرار دارند و در صورت بروز هرگونه خسارت، جبران خواهد شد.
+        </div>
+       </div>
+       <div class="faq-item">
+        <div class="faq-question"><span>قیمت حمل بار چگونه محاسبه می‌شود؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         قیمت بر اساس عواملی مانند وزن و حجم بار، مسافت، نوع خودرو و خدمات جانبی (بارگیری، تخلیه، بسته‌بندی) محاسبه می‌شود. برای دریافت قیمت دقیق با ما تماس بگیرید.
+        </div>
+       </div>
+       <div class="faq-item">
+        <div class="faq-question"><span>آیا خدمات بارگیری و تخلیه ارائه می‌دهید؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         بله، ما خدمات بارگیری و تخلیه با کارگران مجرب را ارائه می‌دهیم. همچنین بسته‌بندی حرفه‌ای کالاها نیز در صورت نیاز انجام می‌شود.
+        </div>
+       </div>
+       <div class="faq-item">
+        <div class="faq-question"><span>آیا امکان پیگیری آنلاین بار وجود دارد؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         بله، شما می‌توانید با استفاده از کد رهگیری، وضعیت بار خود را به صورت آنلاین پیگیری کنید و از موقعیت مکانی آن مطلع شوید.
+        </div>
+       </div>
+       <div class="faq-item">
+        <div class="faq-question"><span>زمان تحویل بار چقدر طول می‌کشد؟</span> <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+         زمان تحویل بستگی به مسافت و نوع خدمت دارد. برای ارسال‌های شهری معمولاً همان روز یا حداکثر ۲۴ ساعته انجام می‌شود. برای مسیرهای بین‌شهری زمان دقیق هنگام ثبت سفارش اعلام می‌گردد.
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Testimonials Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">نظرات مشتریان</h3>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+       <div class="testimonial-card">
+        <div class="flex items-center gap-4 mb-4">
+         <div class="text-5xl">
+          👤
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">احمد محمدی</h4>
+          <div class="text-yellow-500">
+           ⭐⭐⭐⭐⭐
+          </div>
+         </div>
+        </div>
+        <p class="text-gray-700 leading-relaxed">"خدمات عالی و حرفه‌ای. بار من با دقت کامل و در زمان مقرر به مقصد رسید. قیمت‌ها هم بسیار مناسب بود. قطعاً دوباره استفاده خواهم کرد."</p>
+       </div>
+       <div class="testimonial-card">
+        <div class="flex items-center gap-4 mb-4">
+         <div class="text-5xl">
+          👤
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">زهرا احمدی</h4>
+          <div class="text-yellow-500">
+           ⭐⭐⭐⭐⭐
+          </div>
+         </div>
+        </div>
+        <p class="text-gray-700 leading-relaxed">"برای اسباب‌کشی از این شرکت استفاده کردم. کارگران بسیار ماهر و مودب بودند. همه وسایل من با امنیت کامل جابجا شد. ممنون از تیم بارسرا."</p>
+       </div>
+       <div class="testimonial-card">
+        <div class="flex items-center gap-4 mb-4">
+         <div class="text-5xl">
+          👤
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">رضا کریمی</h4>
+          <div class="text-yellow-500">
+           ⭐⭐⭐⭐⭐
+          </div>
+         </div>
+        </div>
+        <p class="text-gray-700 leading-relaxed">"پشتیبانی ۲۴ ساعته واقعاً کار می‌کند! شب یک مشکل پیش آمد و بلافاصله پاسخگو بودند. سرویس سریع و قابل اعتماد."</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Order Form Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">ثبت درخواست حمل بار</h3>
+      <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+       <form id="order-form" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+         <div><label class="block text-gray-700 font-semibold mb-2">نام و نام خانوادگی</label> <input type="text" class="form-input" required>
+         </div>
+         <div><label class="block text-gray-700 font-semibold mb-2">شماره تماس</label> <input type="tel" class="form-input" required>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+         <div><label class="block text-gray-700 font-semibold mb-2">نوع خدمت</label> <select class="form-input" required> <option value="">انتخاب کنید</option> <option>حمل بار شهری</option> <option>حمل بار بین‌شهری</option> <option>اسباب‌کشی</option> <option>ارسال سریع</option> </select>
+         </div>
+         <div><label class="block text-gray-700 font-semibold mb-2">نوع خودرو</label> <select class="form-input" required> <option value="">انتخاب کنید</option> <option>وانت</option> <option>کامیونت</option> <option>خاور</option> </select>
+         </div>
+        </div>
+        <div><label class="block text-gray-700 font-semibold mb-2">آدرس مبدا</label> <input type="text" class="form-input" required>
+        </div>
+        <div><label class="block text-gray-700 font-semibold mb-2">آدرس مقصد</label> <input type="text" class="form-input" required>
+        </div>
+        <div><label class="block text-gray-700 font-semibold mb-2">توضیحات (نوع بار، وزن تقریبی و...)</label> <textarea rows="4" class="form-input"></textarea>
+        </div><button type="submit" class="submit-btn w-full text-lg">ثبت درخواست</button>
+       </form>
+      </div>
+     </div>
+    </section>
+   </div><!-- Page 3: About Us -->
+   <div id="page-about" class="page-content"><!-- Company Intro Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h2 class="section-title text-5xl font-bold text-gray-800 mb-12 text-center">درباره شرکت بارسرا</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/pXTBvkjQ/In-Shot-. 6.jpg" alt="شرکت حمل‌ونقل بارسرا" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div>
+        <h3 class="text-3xl font-bold text-gray-800 mb-6">بیش از ۱۰ سال تجربه در صنعت حمل‌ونقل</h3>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">شرکت حمل‌ونقل بارسرا در سال ۱۳۹۲ با هدف ارائه خدمات حرفه‌ای و باکیفیت در زمینه حمل‌ونقل بار تاسیس شد. ما با شروع فعالیت با تعداد محدودی خودرو، امروز به یکی از بزرگ‌ترین شرکت‌های حمل‌ونقل در کشور تبدیل شده‌ایم.</p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">در طول این سال‌ها، ما بیش از ۱۰۰,۰۰۰ محموله را با موفقیت به مقصد رسانده‌ایم و افتخار همکاری با بیش از ۵,۰۰۰ مشتری راضی را داریم. تیم ما متشکل از رانندگان مجرب، کارشناسان باسابقه و پشتیبانان حرفه‌ای است که همه تلاش خود را برای رضایت شما به کار می‌برند.</p>
+        <p class="text-lg text-gray-700 leading-relaxed">اعتماد شما بزرگ‌ترین سرمایه ماست و ما متعهد هستیم که همواره با ارائه بهترین خدمات، این اعتماد را حفظ کنیم.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Mission and Vision -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+       <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+         <div class="text-5xl mb-4">
+          🎯
+         </div>
+         <h3 class="text-3xl font-bold text-blue-600 mb-4">ماموریت ما</h3>
+         <p class="text-lg text-gray-700 leading-relaxed">ارائه خدمات حمل‌ونقل سریع، ایمن و مطمئن با استفاده از فناوری‌های نوین و تیمی حرفه‌ای. ما به دنبال آن هستیم که بهترین تجربه حمل بار را برای مشتریان خود فراهم کنیم و با پشتیبانی ۲۴ ساعته، همیشه در کنار آنها باشیم.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+         <div class="text-5xl mb-4">
+          🔭
+         </div>
+         <h3 class="text-3xl font-bold text-blue-600 mb-4">چشم‌انداز ما</h3>
+         <p class="text-lg text-gray-700 leading-relaxed">تبدیل شدن به بزرگ‌ترین و معتبرترین شرکت حمل‌ونقل در کشور و گسترش خدمات به تمام نقاط ایران. ما می‌خواهیم با ارائه خدمات نوآورانه و استاندارد جهانی، الگویی برای سایر شرکت‌های حمل‌ونقل باشیم.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Why Choose Us -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">چرا بارسرا؟</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+       <div class="text-center">
+        <div class="text-6xl mb-4">
+         ✅
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">تجربه و تخصص</h4>
+        <p class="text-gray-600">بیش از ۱۰ سال تجربه موفق در صنعت حمل‌ونقل</p>
+       </div>
+       <div class="text-center">
+        <div class="text-6xl mb-4">
+         🚚
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">ناوگان مدرن</h4>
+        <p class="text-gray-600">بیش از ۵۰ دستگاه خودرو با سرویس منظم</p>
+       </div>
+       <div class="text-center">
+        <div class="text-6xl mb-4">
+         🔒
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">امنیت و اطمینان</h4>
+        <p class="text-gray-600">بیمه کامل بار و تضمین سلامت محموله</p>
+       </div>
+       <div class="text-center">
+        <div class="text-6xl mb-4">
+         💯
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-3">رضایت مشتریان</h4>
+        <p class="text-gray-600">بیش از ۹۸٪ رضایت مشتریان</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Fleet Image Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+       <div class="fleet-image-container mb-8"><img src="https://i.postimg.cc/rsyNKNYv/In-Shot-. 8.jpg" alt="ناوگان حمل‌ونقل" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div class="text-center">
+        <h3 class="text-3xl font-bold text-gray-800 mb-4">ناوگان متنوع و مجهز</h3>
+        <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">تمامی خودروهای ما مجهز به سیستم ردیابی GPS، دارای بیمه کامل و تحت سرویس‌های منظم فنی هستند. ما همچنین از لاستیک‌های استاندارد و سیستم‌های ایمنی پیشرفته در تمام خودروها استفاده می‌کنیم.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Team Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">تیم ما</h3>
+      <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+       <div class="team-member">
+        <div class="text-6xl mb-4">
+         👨‍💼
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-2">علی رضایی</h4>
+        <p class="text-blue-600 font-semibold mb-2">مدیر عامل</p>
+        <p class="text-sm text-gray-600">با ۱۵ سال تجربه در مدیریت حمل‌ونقل</p>
+       </div>
+       <div class="team-member">
+        <div class="text-6xl mb-4">
+         👨‍💻
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-2">مهدی احمدی</h4>
+        <p class="text-blue-600 font-semibold mb-2">مدیر عملیات</p>
+        <p class="text-sm text-gray-600">متخصص لجستیک و زنجیره تامین</p>
+       </div>
+       <div class="team-member">
+        <div class="text-6xl mb-4">
+         👩‍💼
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-2">سارا محمدی</h4>
+        <p class="text-blue-600 font-semibold mb-2">مدیر پشتیبانی</p>
+        <p class="text-sm text-gray-600">رهبر تیم خدمات مشتریان</p>
+       </div>
+       <div class="team-member">
+        <div class="text-6xl mb-4">
+         👨‍🔧
+        </div>
+        <h4 class="text-xl font-bold text-gray-800 mb-2">حسین کریمی</h4>
+        <p class="text-blue-600 font-semibold mb-2">مدیر فنی</p>
+        <p class="text-sm text-gray-600">مسئول نگهداری و تعمیرات ناوگان</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Drivers Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">رانندگان مجرب و حرفه‌ای</h3>
+      <div class="max-w-4xl mx-auto">
+       <p class="text-lg text-gray-700 leading-relaxed text-center mb-12">تمامی رانندگان ما دوره‌های آموزشی تخصصی را گذرانده‌اند و دارای گواهینامه معتبر و سابقه کاری مناسب هستند. ما اهمیت زیادی به رفتار حرفه‌ای و ایمنی رانندگی می‌دهیم.</p>
+       <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          🎓
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">آموزش‌دیده</h4>
+         <p class="text-gray-600">دوره‌های تخصصی حمل بار</p>
+        </div>
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          🛡️
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">قابل اعتماد</h4>
+         <p class="text-gray-600">گواهینامه و سوابق معتبر</p>
+        </div>
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          💼
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">حرفه‌ای</h4>
+         <p class="text-gray-600">رفتار مودبانه و محترمانه</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Quick Contact Section -->
+    <section class="py-16">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">تماس سریع</h3>
+      <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+       <div class="fleet-image-container"><img src="https://i.postimg.cc/yxFC8B2s/In-Shot-. 0.jpg" alt="تماس با ما" class="w-full h-auto" onerror="this.src=''; this.alt='تصویر در دسترس نیست'; this.style.display='none';">
+       </div>
+       <div class="quick-contact-box">
+        <h4 class="text-3xl font-bold mb-6">همین الان تماس بگیرید</h4>
+        <div class="space-y-4 mb-8">
+         <div class="flex items-center gap-4"><span class="text-4xl">📞</span>
+          <div>
+           <p class="text-sm opacity-90">تلفن ثابت</p>
+           <p id="about-phone-1" class="text-2xl font-bold">۰۲۱-۸۸۷۷۶۶۵۵</p>
+          </div>
+         </div>
+         <div class="flex items-center gap-4"><span class="text-4xl">📱</span>
+          <div>
+           <p class="text-sm opacity-90">موبایل</p>
+           <p class="text-2xl font-bold">۰۹۱۲۳۴۵۶۷۸۹</p>
+          </div>
+         </div>
+         <div class="flex items-center gap-4"><span class="text-4xl">📧</span>
+          <div>
+           <p class="text-sm opacity-90">ایمیل</p>
+           <p class="text-xl font-bold">info@barsara.com</p>
+          </div>
+         </div>
+         <div class="flex items-center gap-4"><span class="text-4xl">📍</span>
+          <div>
+           <p class="text-sm opacity-90">آدرس</p>
+           <p id="about-address" class="text-lg font-bold">تهران، میدان آزادی، خیابان استقلال، پلاک ۱۲۳</p>
+          </div>
+         </div>
+        </div>
+        <div class="pt-6 border-t border-white border-opacity-30">
+         <p class="text-lg mb-4">ساعت کاری: ۲۴ ساعته، ۷ روز هفته</p><button id="cta-about-btn" class="cta-button text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg w-full">درخواست فوری حمل بار</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Social Media Section -->
+    <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4">
+      <h3 class="section-title text-4xl font-bold text-gray-800 mb-12 text-center">ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+      <div class="flex justify-center gap-6"><a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"> <span class="text-2xl">📱</span> </a> <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"> <span class="text-2xl">📘</span> </a> <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"> <span class="text-2xl">📷</span> </a> <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer"> <span class="text-2xl">🐦</span> </a>
+      </div>
+     </div>
+    </section>
+   </div><!-- Footer -->
+   <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+     <p class="mb-2">© ۱۴۰۳ شرکت حمل‌ونقل بارسرا - تمامی حقوق محفوظ است</p>
+     <p class="text-gray-400 text-sm">طراحی و توسعه با ❤️ برای خدمات بهتر به شما</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            company_name: 'بارسرا',
+            company_tagline: 'حمل‌ونقل سریع و مطمئن',
+            phone_number: '۰۲۱-۸۸۷۷۶۶۵۵',
+            address: 'تهران، میدان آزادی، خیابان استقلال، پلاک ۱۲۳',
+            hero_title: 'حمل بار سریع و ایمن در سراسر کشور',
+            cta_button: 'درخواست فوری حمل بار',
+            background_color: '#f8fafc',
+            primary_color: '#3b82f6',
+            text_color: '#1f2937',
+            button_color: '#f59e0b',
+            secondary_color: '#6b7280',
+            font_family: 'Vazirmatn',
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const baseFontStack = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+            
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.body.style.fontSize = `${baseSize}px`;
+            document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
+            document.body.style.color = config.text_color || defaultConfig.text_color;
+
+            // Update all headings with proportional scaling
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(heading => {
+                const tagName = heading.tagName.toLowerCase();
+                const scales = { h1: 2.5, h2: 2, h3: 1.75, h4: 1.5, h5: 1.25, h6: 1.1 };
+                heading.style.fontSize = `${baseSize * scales[tagName]}px`;
+                heading.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            });
+
+            // Update paragraph and body text
+            const paragraphs = document.querySelectorAll('p, li, td, th, label, span');
+            paragraphs.forEach(p => {
+                p.style.fontSize = `${baseSize}px`;
+            });
+
+            // Update small text elements
+            const smallText = document.querySelectorAll('.text-sm, .text-xs');
+            smallText.forEach(el => {
+                el.style.fontSize = `${baseSize * 0.875}px`;
+            });
+
+            // Update colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const buttonColor = config.button_color || defaultConfig.button_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+
+            // Update hero section background
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${primaryColor}dd 100%)`;
+            }
+
+            // Update all primary color elements
+            const primaryElements = document.querySelectorAll('.text-blue-600, .bg-blue-600, .border-blue-600');
+            primaryElements.forEach(el => {
+                if (el.classList.contains('text-blue-600')) {
+                    el.style.color = primaryColor;
+                }
+                if (el.classList.contains('bg-blue-600')) {
+                    el.style.backgroundColor = primaryColor;
+                }
+                if (el.classList.contains('border-blue-600')) {
+                    el.style.borderColor = primaryColor;
+                }
+            });
+
+            // Update CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(btn => {
+                btn.style.background = `linear-gradient(135deg, ${buttonColor} 0%, ${buttonColor}dd 100%)`;
+            });
+
+            // Update submit buttons
+            const submitButtons = document.querySelectorAll('.submit-btn');
+            submitButtons.forEach(btn => {
+                btn.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${primaryColor}dd 100%)`;
+            });
+
+            // Update text content
+            document.getElementById('nav-company-name').textContent = config.company_name || defaultConfig.company_name;
+            document.getElementById('nav-company-tagline').textContent = config.company_tagline || defaultConfig.company_tagline;
+            document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+            document.getElementById('contact-phone').textContent = config.phone_number || defaultConfig.phone_number;
+            document.getElementById('contact-address').textContent = config.address || defaultConfig.address;
+            document.getElementById('about-phone-1').textContent = config.phone_number || defaultConfig.phone_number;
+            document.getElementById('about-address').textContent = config.address || defaultConfig.address;
+            
+            const ctaBtns = document.querySelectorAll('#cta-hero-btn, #cta-bottom-btn, #cta-about-btn');
+            ctaBtns.forEach(btn => {
+                btn.textContent = config.cta_button || defaultConfig.cta_button;
+            });
+
+            // Update feature boxes hover effect
+            const featureBoxes = document.querySelectorAll('.feature-box');
+            featureBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${primaryColor}dd 100%)`;
+                });
+                box.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)';
+                });
+            });
+
+            // Update section titles underline
+            const sectionTitles = document.querySelectorAll('.section-title::after');
+            document.querySelectorAll('.section-title').forEach(title => {
+                const style = document.createElement('style');
+                style.textContent = `
+                    .section-title::after {
+                        background: linear-gradient(90deg, ${buttonColor} 0%, ${primaryColor} 100%) !important;
+                    }
+                `;
+                if (!document.querySelector('#dynamic-title-style')) {
+                    style.id = 'dynamic-title-style';
+                    document.head.appendChild(style);
+                }
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.button_color || defaultConfig.button_color,
+                        set: (value) => {
+                            config.button_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ button_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ secondary_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ['company_name', config.company_name || defaultConfig.company_name],
+                ['company_tagline', config.company_tagline || defaultConfig.company_tagline],
+                ['phone_number', config.phone_number || defaultConfig.phone_number],
+                ['address', config.address || defaultConfig.address],
+                ['hero_title', config.hero_title || defaultConfig.hero_title],
+                ['cta_button', config.cta_button || defaultConfig.cta_button]
+            ]);
+        }
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Initial render
+        onConfigChange(window.elementSdk ? window.elementSdk.config : defaultConfig);
+
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page-content');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.dataset.page;
+                
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(`page-${targetPage}`).classList.add('active');
+                
+                navLinks.forEach(l => l.classList.remove('text-blue-600'));
+                link.classList.add('text-blue-600');
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Form submissions
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-center';
+            messageDiv.textContent = 'پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.';
+            
+            e.target.appendChild(messageDiv);
+            e.target.reset();
+            
+            setTimeout(() => messageDiv.remove(), 5000);
+        });
+
+        document.getElementById('order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-center';
+            messageDiv.textContent = 'درخواست شما با موفقیت ثبت شد. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.';
+            
+            e.target.appendChild(messageDiv);
+            e.target.reset();
+            
+            setTimeout(() => messageDiv.remove(), 5000);
+        });
+
+        // CTA button handlers
+        document.querySelectorAll('#cta-hero-btn, #cta-bottom-btn, #cta-about-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-4 rounded-lg shadow-lg z-50';
+                messageDiv.innerHTML = `
+                    <p class="font-bold mb-2">برای درخواست فوری تماس بگیرید:</p>
+                    <p class="text-2xl">${window.elementSdk ? window.elementSdk.config.phone_number : defaultConfig.phone_number}</p>
+                `;
+                
+                document.body.appendChild(messageDiv);
+                setTimeout(() => messageDiv.remove(), 5000);
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b290d0a561565b0',t:'MTc2NjUwNTQwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
